@@ -1,5 +1,5 @@
 import './App.css';
-import {Button,Container,Row,Col,Navbar,Nav} from 'react-bootstrap';
+import {Button,Container,Row,Col,Navbar,Nav,Figure,disabled} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
@@ -50,7 +50,6 @@ const abi= [
   }
 ]
 function App() {
-  const Robot = require('./Robot/Robot.jpg');
   const [address,setAddress]=useState('');
   const [balance,setBalance]=useState('');
   const [userInput,setUserInput]=useState('')
@@ -141,6 +140,7 @@ function App() {
             
             <Col>
             {/* <img src={Robot} alt="Robot"/> */}
+            
             <img src={require('../src/Robot/Robot01.jpg')} alt="Robot"/>
            {/* <div style={{background: `url(${Robot})`, height: '500px'}}/> */}
             </Col>
