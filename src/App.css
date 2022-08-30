@@ -7,6 +7,12 @@
   pointer-events: none;
 }
 
+.sticky_block {
+  position: sticky;
+  top: 0px;
+  background-color: #ff0000;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -42,4 +48,35 @@
 }
 .div2{
   background-color:#8D6E63 ;
+}
+
+.king{
+  position: absolute;
+  width: 638px;
+  height: 402px;
+  left: 72px;
+  top: 960px;
+}
+
+.robot{
+  position: absolute;
+  width: 731px;
+  height: 798px;
+  left: 709px;
+  top: 100px;
+}
+.text{
+  position: absolute;
+  width: 547px;
+  height: 256px;
+  left: 76px;
+  top: 193px;
+
+  font-family: 'Hind Mysuru';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 82px;
+
+  color: floralwhite;
 }

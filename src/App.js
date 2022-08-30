@@ -1,9 +1,11 @@
 import './App.css';
-import {Button,Container,Row,Col,Navbar,Nav,Figure,disabled} from 'react-bootstrap';
+import {Button,Container,Row,Col,Navbar,Nav,iframe} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import React,{useState} from 'react';
+
+
 
 const web3Modal = new Web3Modal({
   network: "rinkeby", // testnet
@@ -56,6 +58,7 @@ function App() {
   const [msg,setMsg]=useState('');
   const [contract,setContract]=useState({});
   const [ens,setEns]=useState('');
+  const [isClick,setClick]=useState(false);
   // const shortenBalance=bal=>roundDecimal(bal,2);
   const shortenAddr=addr=>addr.slice(0,4)+"..."+addr.slice(-4);//取前四後四的Addr
   async function init(){
@@ -76,6 +79,7 @@ function App() {
 
     const bal=await provider.getBalance(addr);
     setBalance(ethers.utils.formatEther( bal )); 
+    setClick((isClick) => !isClick);
   }
 
   async function getMessage(){
@@ -103,11 +107,10 @@ function App() {
     <div className="App"> 
       <div className='div2'>
         <div className='div1'>
-          <Navbar expand="lg">
+          <Navbar>
             <Container>
               <Navbar.Brand href="#home">STUST NFT Universe</Navbar.Brand>
-              {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-              {/* <Nav.Link href="#home">Home</Nav.Link> */}
+           
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Attribute</Nav.Link>
               <Nav.Link href="#home">Mint</Nav.Link>
@@ -117,7 +120,7 @@ function App() {
                 {address&&<span className='me-2' >
                 {(1*balance).toFixed(2)}Ethers
                 </span>}
-                <Button variant={address?'success':'outline-secondary'} onClick={()=>{init()}}>
+                <Button variant={address?'success':'outline-secondary'} onClick={()=>{init()}} disabled={isClick}>
                 {address?(ens||shortenAddr(address)):'Connect Wallet'}
                 </Button>
               </div>
@@ -125,45 +128,23 @@ function App() {
           </Navbar>
         </div>
       <Container className="mt-5">
-
+      
         <Row>
           
           <Col md={{span:3}}>
+            <div className='text'>
             <h2>Southern Taiwan University of Science and Technology NFTS</h2>
             
             <Button variant="dark">Mint My NFT</Button>
             <h6>The Stust NFT   0.003ETH</h6>
-              
+            </div>
           </Col>
-          
-            
-            
             <Col>
-            {/* <img src={Robot} alt="Robot"/> */}
             
-            <img src={require('../src/Robot/Robot01.jpg')} alt="Robot"/>
-           {/* <div style={{background: `url(${Robot})`, height: '500px'}}/> */}
             </Col>
-          
+            <iframe src="https://kuochenlee.github.io/Robot_3/" width="640" height="620"></iframe>
         </Row>
         
-          {/* <Row className="mt-5">
-            <Col>
-              <h3>Greet:{msg}</h3>
-            </Col>
-          </Row>
-          <Row className="mt-5">
-            <Col>
-              <h3>current user input:{userInput}</h3>
-              <input type="text" value={userInput} onChange={e=>setUserInput(e.target.value)} />
-              <Button onClick={()=>{setMessage(userInput)}}>Set Message</Button>
-            </Col>
-          </Row>
-          <Row className="mt-5">
-            <Col>
-            <Button onClick={()=>{getMessage()}}>Get Message</Button>
-            </Col>
-          </Row> */}
         </Container>
       </div>
       <div className='div1'>
@@ -171,12 +152,13 @@ function App() {
           <Row>
             <Col>
             
+              <iframe src="https://kuochenlee.github.io/Robot_4/" width="560" height="540"/>
             </Col>
             <Col>
               <h1>Attribute</h1>
-              <h6>
+              <h3>
               The Ministry of National Defense held a press conference today (8th) in response to the Chinese People's Liberation Army's "encircling Taiwan" military exercise from noon on the 4th to noon on the 7th. During the meeting, Lieutenant General Yan Youxian, Deputy Chief of the Qing Section Office, pointed out that since the 4th, the Chinese Navy has maintained 13 combat ships, intelligence search ships, etc. every day 24 nautical miles away from my country's adjoining area; The East, etc., dispatched fighter jets every day, including J-11, J-16 and air police series, to implement multiple types of deterrence in the Taiwan Strait.
-              </h6>
+              </h3>
             </Col>
           </Row>
           <Row>
@@ -193,7 +175,7 @@ function App() {
               
             </Col>
             <Col>
-            
+            <iframe src="https://kuochenlee.github.io/Robot_5/" width="560" height="540"/>
             </Col>
           </Row>
           <Row>
