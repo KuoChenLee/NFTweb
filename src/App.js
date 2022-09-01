@@ -180,7 +180,7 @@ function App() {
           </Row>
           <Row>
             <Col>
-            
+             <iframe src="https://kuochenlee.github.io/Robot_6/" width="560" height="540"/>
             </Col>
             <Col>
               <h1>About</h1>
