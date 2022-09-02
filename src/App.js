@@ -1,5 +1,5 @@
 import './App.css';
-import {Button,Container,Row,Col,Navbar,Nav,iframe} from 'react-bootstrap';
+import {Button,Container,Row,Col,Navbar,Nav,iframe,Carousel} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
@@ -128,22 +128,48 @@ function App() {
           </Navbar>
         </div>
       <Container className="mt-5">
-      
-        <Row>
+      <Carousel fade>
+                <Carousel.Item>
+                  <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="700"></iframe>
+                  <Carousel.Caption >
+                    <h3>STUST ROBOTS MINT </h3>
+                    <p>You can mint a NFT for 0.003 Ethers</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                <iframe src="https://kuochenlee.github.io/background_2/" width="2200" height="700"></iframe>
+
+                  <Carousel.Caption>
+                    <h3>DEFFERENT ATTRUBUTE</h3>
+                    <p>You can get defferent attribute NFT.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="700"></iframe>
+
+                  <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>
+                      Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+//         <Row>
           
-          <Col md={{span:3}}>
-            <div className='text'>
-            <h2>Southern Taiwan University of Science and Technology NFTS</h2>
+//           <Col md={{span:3}}>
+//             <div className='text'>
+//             <h2>Southern Taiwan University of Science and Technology NFTS</h2>
             
-            <Button variant="dark">Mint My NFT</Button>
-            <h6>The Stust NFT   0.003ETH</h6>
-            </div>
-          </Col>
-            <Col>
+//             <Button variant="dark">Mint My NFT</Button>
+//             <h6>The Stust NFT   0.003ETH</h6>
+//             </div>
+//           </Col>
+//             <Col>
             
-            </Col>
-            <iframe src="https://kuochenlee.github.io/Robot_3/" width="640" height="620"></iframe>
-        </Row>
+//             </Col>
+//             <iframe src="https://kuochenlee.github.io/Robot_3/" width="640" height="620"></iframe>
+//         </Row>
         
         </Container>
       </div>
