@@ -111,11 +111,11 @@ function App() {
             <Container>
               <Navbar.Brand href="#home">STUST NFT Universe</Navbar.Brand>
            
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Attribute</Nav.Link>
-              <Nav.Link href="#home">Mint</Nav.Link>
-              <Nav.Link href="#link">About</Nav.Link>
-              <Nav.Link href="#link">FAQ</Nav.Link>
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#link">Attribute</Nav.Link>
+                <Nav.Link href="#home">Mint</Nav.Link>
+                <Nav.Link href="#link">About</Nav.Link>
+                <Nav.Link href="#link">FAQ</Nav.Link>
               <div>
                 {address&&<span className='me-2' >
                 {(1*balance).toFixed(2)}Ethers
@@ -127,17 +127,17 @@ function App() {
               </Container>
           </Navbar>
         </div>
-      <Container className="mt-5">
-      <Carousel fade>
+      {/* <Container className="mt-5"> */}
+              <Carousel fade>
                 <Carousel.Item>
-                  <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="700"></iframe>
+                  <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
                   <Carousel.Caption >
                     <h3>STUST ROBOTS MINT </h3>
                     <p>You can mint a NFT for 0.003 Ethers</p>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                <iframe src="https://kuochenlee.github.io/background_2/" width="2200" height="700"></iframe>
+                    <iframe src="https://kuochenlee.github.io/background_3/" width="2200" height="720"></iframe>
 
                   <Carousel.Caption>
                     <h3>DEFFERENT ATTRUBUTE</h3>
@@ -145,7 +145,7 @@ function App() {
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="700"></iframe>
+                <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
 
                   <Carousel.Caption>
                     <h3>Third slide label</h3>
@@ -155,30 +155,30 @@ function App() {
                   </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-//         <Row>
+        {/* <Row>
           
-//           <Col md={{span:3}}>
-//             <div className='text'>
-//             <h2>Southern Taiwan University of Science and Technology NFTS</h2>
+          <Col md={{span:3}}>
+            <div className='text'>
+            <h2>Southern Taiwan University of Science and Technology NFTS</h2>
             
-//             <Button variant="dark">Mint My NFT</Button>
-//             <h6>The Stust NFT   0.003ETH</h6>
-//             </div>
-//           </Col>
-//             <Col>
+            <Button variant="dark">Mint My NFT</Button>
+            <h6>The Stust NFT   0.003ETH</h6>
+            </div>
+          </Col>
+            <Col>
             
-//             </Col>
-//             <iframe src="https://kuochenlee.github.io/Robot_3/" width="640" height="620"></iframe>
-//         </Row>
+            </Col>
+            <iframe src="https://kuochenlee.github.io/Robot_3/" width="640" height="620"></iframe>
+        </Row> */}
         
-        </Container>
+        {/* </Container> */}
       </div>
       <div className='div1'>
         <Container>
           <Row>
             <Col>
             
-              <iframe src="https://kuochenlee.github.io/Robot_4/" width="560" height="540"/>
+              <iframe src="https://kuochenlee.github.io/Robot_9/" width="560" height="620"/>
             </Col>
             <Col>
               <h1>Attribute</h1>
@@ -201,12 +201,12 @@ function App() {
               
             </Col>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Robot_5/" width="560" height="540"/>
+            <iframe src="https://kuochenlee.github.io/Robot_5/" width="560" height="620"/>
             </Col>
           </Row>
           <Row>
             <Col>
-             <iframe src="https://kuochenlee.github.io/Robot_6/" width="560" height="540"/>
+            <iframe src="https://kuochenlee.github.io/Robot_8/" width="560" height="620"/>
             </Col>
             <Col>
               <h1>About</h1>
