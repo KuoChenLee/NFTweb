@@ -1,5 +1,5 @@
 import './App.css';
-import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion} from 'react-bootstrap';
+import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion,Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
@@ -159,12 +159,96 @@ myFunction();
             </Col>
             <Col>
               <h1>Attribute</h1>
-              <h3>
-              The Ministry of National Defense held a press conference today (8th) in response to the Chinese People's Liberation Army's "encircling Taiwan" military exercise from noon on the 4th to noon on the 7th. During the meeting, Lieutenant General Yan Youxian, Deputy Chief of the Qing Section Office, pointed out that since the 4th, the Chinese Navy has maintained 13 combat ships, intelligence search ships, etc. every day 24 nautical miles away from my country's adjoining area; The East, etc., dispatched fighter jets every day, including J-11, J-16 and air police series, to implement multiple types of deterrence in the Taiwan Strait.
-              </h3>
+                <Table striped bordered hover size="sm"  variant="info">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Types</th>
+                      <th></th>
+                      <th>Variations</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>20</td>
+                      <td>Total Robots</td>
+                      <td>20</td>
+                      <td>Head Tops</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                      <td>Common</td>
+                      <td>Robotos</td>
+                      <td>20</td>
+                      <td>Eyes</td>
+                      
+                    </tr>
+                    <tr>
+                    <td></td>
+                      <td>Less Common</td>
+                      <td>Helmetos</td>
+                      <td>10</td>
+                      <td>Helmets</td>
+                     
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>20</td>
+                      <td>mouth</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>10</td>
+                      <td>ears</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>10</td>
+                      <td>Arms</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>5</td>
+                      <td>backpack</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>5</td>
+                      <td>body</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>3</td>
+                      <td>Head Types</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>20</td>
+                      <td>equipment</td>
+                    </tr>
+                  </tbody>
+              </Table>
             </Col>
           </Row>
+        
           <Row>
+
             <Col>
               <h1>Mint your own NFT</h1>
 
