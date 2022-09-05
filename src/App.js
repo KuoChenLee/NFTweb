@@ -1,5 +1,5 @@
 import './App.css';
-import {Button,Container,Row,Col,Navbar,Nav,iframe,Carousel} from 'react-bootstrap';
+import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
@@ -54,13 +54,22 @@ const abi= [
 function App() {
   const [address,setAddress]=useState('');
   const [balance,setBalance]=useState('');
-  const [userInput,setUserInput]=useState('')
-  const [msg,setMsg]=useState('');
   const [contract,setContract]=useState({});
   const [ens,setEns]=useState('');
   const [isClick,setClick]=useState(false);
   // const shortenBalance=bal=>roundDecimal(bal,2);
+  const [isClickBT,setClickBT]=useState(false);
   const shortenAddr=addr=>addr.slice(0,4)+"..."+addr.slice(-4);//取前四後四的Addr
+  function myFunction() {
+    let elem = document.querySelectorAll(".drop-down");
+
+    elem.forEach(element=>{
+        element.addEventListener("click", e =>{
+            console.log(e.target.innerHTML);
+        });
+    })
+}
+myFunction();
   async function init(){
       
     const instance = await web3Modal.connect();
@@ -81,25 +90,7 @@ function App() {
     setBalance(ethers.utils.formatEther( bal )); 
     setClick((isClick) => !isClick);
   }
-
-  async function getMessage(){
-    
-  
-    
-    const _msg=await contract.greet();
-    console.log(_msg);
-    setMsg(_msg);
-  }
-  async function setMessage(msg){    
-    await contract.setGreeting(msg);
-    // await getMessage();
-  }
-  // async function mint(){
-  //   await contract mint(
-  //     1,
-  //     {value:0.003S*Math.pow(10,17)}
-  //   )
-  // }
+ 
 
 
 
@@ -127,21 +118,23 @@ function App() {
               </Container>
           </Navbar>
         </div>
-      {/* <Container className="mt-5"> */}
+      
               <Carousel fade>
                 <Carousel.Item>
                   <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
-                  <Carousel.Caption >
-                    <h3>STUST ROBOTS MINT </h3>
-                    <p>You can mint a NFT for 0.003 Ethers</p>
+                  <Carousel.Caption>
+                    
+                    <h3 className='text1'>STUST ROBOTS MINT </h3>
+                    <p className='text1'>You can mint a NFT for 0.003 Ethers</p>
+                    
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <iframe src="https://kuochenlee.github.io/background_3/" width="2200" height="720"></iframe>
 
                   <Carousel.Caption>
-                    <h3>DEFFERENT ATTRUBUTE</h3>
-                    <p>You can get defferent attribute NFT.</p>
+                    <h3 className='text1'>DEFFERENT ATTRUBUTE</h3>
+                    <p className='text1'>You can get defferent attribute NFT.</p>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -155,23 +148,7 @@ function App() {
                   </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        {/* <Row>
-          
-          <Col md={{span:3}}>
-            <div className='text'>
-            <h2>Southern Taiwan University of Science and Technology NFTS</h2>
-            
-            <Button variant="dark">Mint My NFT</Button>
-            <h6>The Stust NFT   0.003ETH</h6>
-            </div>
-          </Col>
-            <Col>
-            
-            </Col>
-            <iframe src="https://kuochenlee.github.io/Robot_3/" width="640" height="620"></iframe>
-        </Row> */}
-        
-        {/* </Container> */}
+
       </div>
       <div className='div1'>
         <Container>
@@ -190,14 +167,16 @@ function App() {
           <Row>
             <Col>
               <h1>Mint your own NFT</h1>
-              <Col>
-                <Button variant="light">-</Button>
-                <input type="text" />
-                <Button variant="light">+</Button>
-              </Col>
+
+              <select className="list1" id="list">
+                <option class="drop-down">0</option>
+                <option class="drop-down" selected="selected">1</option>
+                <option class="drop-down">2</option>
+              </select>
+
               <Col>
               <Button variant="dark">Mint My NFT</Button>
-              </Col>
+            </Col>
               
             </Col>
             <Col>
@@ -217,11 +196,93 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
               </h6>
             </Col>
           </Row>
-          <div className='div2'><h1>Frequently Asked Questions</h1></div>
-
+          <div className='div2'><h1>Frequently Asked Questions</h1>
+              <Row>
+                <Col>
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Questions#1</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, 
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1"></Accordion.Item>
+                  </Accordion>
+                </Col>
+                <Col>
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Questions#2</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, 
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1"></Accordion.Item>
+                  </Accordion>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Questions#3</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, 
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1"></Accordion.Item>
+                  </Accordion>
+                </Col>
+                <Col>
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Questions#4</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, 
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1"></Accordion.Item>
+                  </Accordion>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Questions#5</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, 
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1"></Accordion.Item>
+                  </Accordion>
+                </Col>
+                <Col>
+                <Accordion flush>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Questions#6</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, 
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1"></Accordion.Item>
+                  </Accordion>
+                </Col>
+              </Row>
+          </div>
+          
         </Container>
+       
       </div>
-      
+      <div className='div3'>
+
+          <h6 className='text2'>
+            DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
+            DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
+            DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
+          </h6>
+      </div>
+
     </div>
   );
 }
