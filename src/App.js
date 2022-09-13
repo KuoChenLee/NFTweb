@@ -16,7 +16,7 @@ const web3Modal = new Web3Modal({
 });
 // const contractAddr=contractAddress.STUST_NFT;
 // const abi=Stust_NETA_Artifact.abi;
-const contractAddr='0xe37Aa76A3557792cafe28411d8cb3bB900229DA5';
+const contractAddr='0x669C6a997934d9b4A95c8919486E391669a2426C';
 const abi=[
 	{
 		"inputs": [
@@ -752,15 +752,12 @@ myFunction();
   }
  async function mint(){
   
-//   let isSale1=await contract.flipSaleActive();
-//   console.log(isSale1);
-  // const setNsetNotRevealedURIFTURI=await contract.setNotRevealedURI('ipfs://QmWuh3khmnSxjgqKM1fX7uFa8va13zMp41irf6cDKHnYmC');
-  // const setBaseURI=await contract.setBaseURI('ipfs://QmTvroQRuCm9RSmpuPmjn9eYZFWfSbPR8ULknHEYgqtBxE/');
+
  
   const mintPrice = await contract.mintPrice();
   
   let tx = await contract.mintSNMeta(
-    1
+    3
     ,{value:mintPrice.toString()}
     )
   let response=await tx.wait();
@@ -769,12 +766,7 @@ myFunction();
   let setNotRevealedURI=await contract.setNotRevealedURI(
 	"ipfs://QmWuh3khmnSxjgqKM1fX7uFa8va13zMp41irf6cDKHnYmC"
   )
-//   let setURI=await contract.setNotRevealedURI(
-// 	'ipfs://QmWuh3khmnSxjgqKM1fX7uFa8va13zMp41irf6cDKHnYmC'
-//   )
-//   let setBaseURI=await contract.setBaseURI(
-// 	'ipfs://QmTvroQRuCm9RSmpuPmjn9eYZFWfSbPR8ULknHEYgqtBxE/'
-//   )
+
   
  }
  async function SeeNFT(){
@@ -984,12 +976,12 @@ myFunction();
 			  </Col>
             </Col>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Robot_5/" width="560" height="620"/>
+            <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="620"/>
             </Col>
           </Row>
           <Row>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Robot_10/" width="560" height="620"/>
+            <iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="620"/>
             </Col>
             <Col>
               <h1>About</h1>
