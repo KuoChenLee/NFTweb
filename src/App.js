@@ -1,13 +1,17 @@
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+// import {
+// 	BrowserRouter as Router,
+// 	Routes,
+// 	Route,
+// 	Link
+//   } from "react-router-dom";
 import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion,Table,iframe,Image} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BigNumber, ethers } from "ethers";
+import {  ethers } from "ethers";
 import Web3Modal from "web3modal";
 import React,{useState} from 'react';
-// import Image from '../public/image/Robot03'
-// import contractAddress from './contracts/contract-address.json';
-// import Stust_NETA_Artifact from './contracts/Stust_NFT_meta_metadata.json';
+// import Attribute from './Attribute.js';
+
 
 
 const web3Modal = new Web3Modal({
@@ -709,15 +713,14 @@ const abi=[
 	}
 ];
 function App() {
-  // let navigate = useNavigate();
+
   const [address,setAddress]=useState('');
   const [balance,setBalance]=useState('');
   const [contract,setContract]=useState({});
   const [ens,setEns]=useState('');
   const [isClick,setClick]=useState(false);
   const [notisClick,setNotClick]=useState(true);
-  // const shortenBalance=bal=>roundDecimal(bal,2);
-  // const [isClickBT,setClickBT]=useState(false);
+  
   const shortenAddr=addr=>addr.slice(0,4)+"..."+addr.slice(-4);//取前四後四的Addr
   function myFunction() {
     let elem = document.querySelectorAll(".drop-down");
@@ -782,24 +785,37 @@ myFunction();
 
 
   return (
+	
     <div className="App"> 
       <div className='div2'>
         <div className='div1'>
+		
           <Navbar>
+
             <Container>
-              <Navbar.Brand href="#home">STUST NFT Universe</Navbar.Brand>
-              <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#Attribute">Attribute</Nav.Link>
+				
+              <Navbar.Brand href="/">STUST NFT Universe</Navbar.Brand>
+              	<Nav.Link href="/">Home</Nav.Link>
+				<Nav.Link href="/attribute">Attribute</Nav.Link>
+				
                 <Nav.Link href="#mint">Mint</Nav.Link>
                 <Nav.Link href='#about'>About</Nav.Link>
                 <Nav.Link href="#link">FAQ</Nav.Link>
-                     
-                {/* <Nav.Route path="/" element={<App />}>Home</Nav.Route>
-                <Nav.Route path="/" element={<Attribute />}>Attribute</Nav.Route>
-                <Nav.Route href="#home">Mint</Nav.Route>
-                <Nav.Route path="about" element={<About />}>About</Nav.Route>
-                <Nav.Route href="#link">FAQ</Nav.Route>
-                <Route path=":Item" element={<Item />} /> */}
+				{/* <Router>
+					<Nav.Link to="/">Home</Nav.Link>
+					<Nav.Link to="/attribute">Attribute</Nav.Link>
+					<Nav.Link to="/mint">Mint</Nav.Link>
+					<Nav.Link to="/about">About</Nav.Link>
+					<Nav.Link to="/FAQ">FAQ</Nav.Link>
+					<Routes>
+						<Route path="/" element={<Home/>}></Route>
+						<Route path="/attribute" element={<Attribute/>}></Route>
+						<Route path="/mint" element={<Mint/>}></Route>
+						<Route path="/about" element={<About/>}></Route>
+						<Route path="/FAQ" element={<FAQ/>}></Route>
+					</Routes>
+				</Router> */}
+                
               <div>
                 {address&&<span className='me-2' >
                 {(1*balance).toFixed(2)}Ethers
@@ -823,7 +839,7 @@ myFunction();
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <iframe src="https://kuochenlee.github.io/background_3/" width="2200" height="720"></iframe>
+                    <iframe src="https://kuochenlee.github.io/background_5/" width="2200" height="720"></iframe>
 
                   <Carousel.Caption>
                     <h3 className='text1'>DEFFERENT ATTRUBUTE</h3>
@@ -831,7 +847,7 @@ myFunction();
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
+                <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="2200" height="720"></iframe>
 
                   <Carousel.Caption>
                     <h3>Third slide label</h3>
@@ -976,12 +992,12 @@ myFunction();
 			  </Col>
             </Col>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="620"/>
+            <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="650"/>
             </Col>
           </Row>
           <Row>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="620"/>
+            <iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="650"/>
             </Col>
             <Col>
               <h1>About</h1>
@@ -997,7 +1013,7 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
                 <Col>
                 <Accordion flush>
                     <Accordion.Item eventKey="0">
-                      <Accordion.Header>Questions#1</Accordion.Header>
+                      <Accordion.Header>What are Robotos?</Accordion.Header>
                       <Accordion.Body>
                         Lorem ipsum dolor sit amet, 
                       </Accordion.Body>
@@ -1008,7 +1024,7 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
                 <Col>
                 <Accordion flush>
                     <Accordion.Item eventKey="0">
-                      <Accordion.Header>Questions#2</Accordion.Header>
+                      <Accordion.Header>Who is behind Robotos?</Accordion.Header>
                       <Accordion.Body>
                         Lorem ipsum dolor sit amet, 
                       </Accordion.Body>
@@ -1021,7 +1037,7 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
                 <Col>
                 <Accordion flush>
                     <Accordion.Item eventKey="0">
-                      <Accordion.Header>Questions#3</Accordion.Header>
+                      <Accordion.Header>What do I get?</Accordion.Header>
                       <Accordion.Body>
                         Lorem ipsum dolor sit amet, 
                       </Accordion.Body>
@@ -1078,57 +1094,44 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
             DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
           </h6>
       </div>
-      {/* <button
-          onClick={() => {
-            navigate("/about");
-          }}
-        >
-          about
-        </button> */}
+     
     </div>
   );
 }
-// function Main() {
-//   return (
-//     <>
-//       <p>main標籤</p>
-//     </>
-//   );
+
+// function Home(){
+// 	return(
+// 		<h2></h2>
+// 	);
 // }
 // function Attribute(){
-//   return (
-//     <>
-//     <main>
-//       <h2>Welcome to the homepage!</h2>
-//       <p>You can do this, I believe in you.</p>
-//     </main>
-//     <nav>
-//       <Link to="/about">About</Link>
-//     </nav>
-//   </>
-//   );
+// 	return(
+// 		<div className='App'>
+// 			<div className='div1'>
+// 				<div className='div2'>
+// 				<h2>Attribute</h2>
+// 					</div>
+// 				</div>
+				
+// 			</div>
+			
+		
+// 	);
 // }
-// function Item() {
-//   const url = useParams();
-//   console.log("url", url);
-//   return (
-//     <>
-//       <p>main標籤</p>
-//     </>
-//   );
+// function Mint(){
+// 	return(
+// 		<h2>Mint</h2>
+// 	);
+// }
+// function About(){
+// 	return(
+// 		<h2>About</h2>
+// 	);
+// }
+// function FAQ(){
+// 	return(
+// 		<h2>FAQ</h2>
+// 	);
 // }
 
-// function About() {
-//   return (
-//     <>
-//       <main>
-//         <h2>Who are we?</h2>
-//         <p>That feels like an existential question, don't you think?</p>
-//       </main>
-//       <nav>
-//         <Link to="/">Home</Link>
-//       </nav>
-//     </>
-//   );
-// }
 export default App;
