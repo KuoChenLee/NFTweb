@@ -20,7 +20,7 @@ const web3Modal = new Web3Modal({
 });
 // const contractAddr=contractAddress.STUST_NFT;
 // const abi=Stust_NETA_Artifact.abi;
-const contractAddr='0x669C6a997934d9b4A95c8919486E391669a2426C';
+const contractAddr='0xD6C452DB2B7fbA72601a8FfEF6b08d108406bA17';
 const abi=[
 	{
 		"inputs": [
@@ -760,14 +760,14 @@ myFunction();
   const mintPrice = await contract.mintPrice();
   
   let tx = await contract.mintSNMeta(
-    3
+    1
     ,{value:mintPrice.toString()}
     )
   let response=await tx.wait();
   console.log(response);
   
   let setNotRevealedURI=await contract.setNotRevealedURI(
-	"ipfs://QmWuh3khmnSxjgqKM1fX7uFa8va13zMp41irf6cDKHnYmC"
+	"ipfs://QmetxQmbkyEc8AUBQ3YWDmLKNLF9q5BxNoXdgnwz9hzAVf"
   )
 
   
@@ -847,7 +847,7 @@ myFunction();
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="2200" height="720"></iframe>
+                	<iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="2200" height="720"></iframe>
 
                   <Carousel.Caption>
                     <h3>Third slide label</h3>
@@ -992,12 +992,12 @@ myFunction();
 			  </Col>
             </Col>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="650"/>
+            	<iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="650"/>
             </Col>
           </Row>
           <Row>
             <Col>
-            <iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="650"/>
+            	<iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="650"/>
             </Col>
             <Col>
               <h1>About</h1>
@@ -1008,84 +1008,36 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
               </h6>
             </Col>
           </Row>
-          <div className='div2'><h1>Frequently Asked Questions</h1>
-              <Row>
-                <Col>
-                <Accordion flush>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>What are Robotos?</Accordion.Header>
-                      <Accordion.Body>
-                        Lorem ipsum dolor sit amet, 
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1"></Accordion.Item>
-                  </Accordion>
-                </Col>
-                <Col>
-                <Accordion flush>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>Who is behind Robotos?</Accordion.Header>
-                      <Accordion.Body>
-                        Lorem ipsum dolor sit amet, 
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1"></Accordion.Item>
-                  </Accordion>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                <Accordion flush>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>What do I get?</Accordion.Header>
-                      <Accordion.Body>
-                        Lorem ipsum dolor sit amet, 
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1"></Accordion.Item>
-                  </Accordion>
-                </Col>
-                <Col>
-                <Accordion flush>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>Questions#4</Accordion.Header>
-                      <Accordion.Body>
-                        Lorem ipsum dolor sit amet, 
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1"></Accordion.Item>
-                  </Accordion>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                <Accordion flush>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>Questions#5</Accordion.Header>
-                      <Accordion.Body>
-                        Lorem ipsum dolor sit amet, 
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1"></Accordion.Item>
-                  </Accordion>
-                </Col>
-                <Col>
-                <Accordion flush>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>Questions#6</Accordion.Header>
-                      <Accordion.Body>
-                        Lorem ipsum dolor sit amet, 
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1"></Accordion.Item>
-                  </Accordion>
-                </Col>
-              </Row>
-          </div>
-          
         </Container>
-       
+		
       </div>
+	  <div className='div4'><h1>Frequently Asked Questions</h1>
+				<Col>
+				<h3 className='text1'>What are Robotos?</h3>
+				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+				</Col>
+
+				<Col>
+				<h3 className='text1'>What are Robotos?</h3>
+				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+				</Col>
+
+				<Col>
+				<h3 className='text1'>What are Robotos?</h3>
+				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+				</Col>
+
+				<Col>
+				<h3 className='text1'>What are Robotos?</h3>
+				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+				</Col>
+
+				<Col>
+				<h3 className='text1'>What are Robotos?</h3>
+				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+				</Col>
+    	</div>
+		  
       <div className='div3'>
 
           <h6 className='text2'>
@@ -1135,3 +1087,4 @@ Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministr
 // }
 
 export default App;
+
