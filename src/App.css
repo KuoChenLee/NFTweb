@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.Attribute{
+  text-align: center;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -45,14 +47,35 @@
 
 .div1{
   background-color:#e27396 ;
+  /* content: url("https://kuochenlee.github.io/background_4/"); */
+  
 }
 .div2{
   background-color:#9381ff ;
+  height: 720px;
 }
 .div3{
   background-color: #14213d;
 }
+.div4{
+  background-color: #1f7a8c;
+  height: 590px;
+  /* background-image: url('../public/image/Robot04.png'); */
+}
+.div5{
+  background-color: #00f5d4;
+}
+.div6{
+  background-color:#7a918d;
+  height: 1010px;
+}
+.div7{
+  background-color:#fff1e6;
 
+}
+.div8{
+  background-color: #bfc0c0;
+}
 .king{
   position: absolute;
   width: 638px;
