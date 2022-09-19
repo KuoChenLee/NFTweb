@@ -1,18 +1,9 @@
 import './App.css';
-// import {
-// 	BrowserRouter as Router,
-// 	Routes,
-// 	Route,
-// 	Link
-//   } from "react-router-dom";
 import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion,Table,iframe,Image} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  ethers } from "ethers";
 import Web3Modal from "web3modal";
 import React,{useState} from 'react';
-// import Attribute from './Attribute.js';
-
-
 
 const web3Modal = new Web3Modal({
   network: "Goerli", // testnet
@@ -713,18 +704,15 @@ const abi=[
 	}
 ];
 function App() {
-
   const [address,setAddress]=useState('');
   const [balance,setBalance]=useState('');
   const [contract,setContract]=useState({});
   const [ens,setEns]=useState('');
   const [isClick,setClick]=useState(false);
   const [notisClick,setNotClick]=useState(true);
-  
   const shortenAddr=addr=>addr.slice(0,4)+"..."+addr.slice(-4);//取前四後四的Addr
   function myFunction() {
     let elem = document.querySelectorAll(".drop-down");
-
     elem.forEach(element=>{
         element.addEventListener("click", e =>{
             console.log(e.target.innerHTML);
@@ -732,144 +720,100 @@ function App() {
     })
 }
 myFunction();
+// metamask錢包 相關處理
   async function init(){
-      
     const instance = await web3Modal.connect();
-    
     const provider = new ethers.providers.Web3Provider(instance);
     const signer = provider.getSigner();
     const addr=await signer.getAddress();
     const _contract=new ethers.Contract(contractAddr,abi,signer);
     setContract(_contract);
     window.contract=_contract;
-
     setEns(await provider.lookupAddress(addr));
-
     console.log(addr);
     setAddress(addr);
-
     const bal=await provider.getBalance(addr);
     setBalance(ethers.utils.formatEther( bal )); 
     setClick((isClick) => !isClick);
     setNotClick((notisClick)=>!notisClick);
   }
+//mint 盲盒處理 
  async function mint(){
-  
-
- 
   const mintPrice = await contract.mintPrice();
-  
   let tx = await contract.mintSNMeta(
     1
     ,{value:mintPrice.toString()}
     )
   let response=await tx.wait();
   console.log(response);
-  
   let setNotRevealedURI=await contract.setNotRevealedURI(
 	"ipfs://QmetxQmbkyEc8AUBQ3YWDmLKNLF9q5BxNoXdgnwz9hzAVf"
   )
-
-  
  }
+// 打開盲盒處理
  async function SeeNFT(){
-	
 	let flipReveal=await contract.flipReveal();
 		  let setBaseURI=await contract.setBaseURI(
 			"ipfs://QmTvroQRuCm9RSmpuPmjn9eYZFWfSbPR8ULknHEYgqtBxE/"
-		  )
-		  
+		  )  
 }
-	
-
-
-
   return (
-	
-    <div className="App"> 
-      <div className='div2'>
-        <div className='div1'>
-		
-          <Navbar>
-
-            <Container>
-				
-              <Navbar.Brand href="/">STUST NFT Universe</Navbar.Brand>
-              	<Nav.Link href="/">Home</Nav.Link>
-				<Nav.Link href="/attribute">Attribute</Nav.Link>
-				
-                <Nav.Link href="#mint">Mint</Nav.Link>
-                <Nav.Link href='#about'>About</Nav.Link>
-                <Nav.Link href="#link">FAQ</Nav.Link>
-				{/* <Router>
-					<Nav.Link to="/">Home</Nav.Link>
-					<Nav.Link to="/attribute">Attribute</Nav.Link>
-					<Nav.Link to="/mint">Mint</Nav.Link>
-					<Nav.Link to="/about">About</Nav.Link>
-					<Nav.Link to="/FAQ">FAQ</Nav.Link>
-					<Routes>
-						<Route path="/" element={<Home/>}></Route>
-						<Route path="/attribute" element={<Attribute/>}></Route>
-						<Route path="/mint" element={<Mint/>}></Route>
-						<Route path="/about" element={<About/>}></Route>
-						<Route path="/FAQ" element={<FAQ/>}></Route>
-					</Routes>
-				</Router> */}
-                
-              <div>
+    <div className="App">
+      {/* 上方列表和連接錢包 */}
+      <div className='div1'>
+        <Navbar>
+          <Container>
+            <Navbar.Brand href="/">STUST NFT Universe</Navbar.Brand>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/attribute">Attribute</Nav.Link>
+            <Nav.Link href="#mint">Mint</Nav.Link>
+            <Nav.Link href='#about'>About</Nav.Link>
+            <Nav.Link href="#link">FAQ</Nav.Link>
+            
+            <div>
                 {address&&<span className='me-2' >
                 {(1*balance).toFixed(2)}Ethers
                 </span>}
                 <Button variant={address?'success':'outline-secondary'} onClick={()=>{init()}} disabled={isClick}>
                 {address?(ens||shortenAddr(address)):'Connect Wallet'}
                 </Button>
-              </div>
-              </Container>
-          </Navbar>
-        </div>
-      
-              <Carousel fade>
-                <Carousel.Item>
-                  <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
-                  <Carousel.Caption>
-                    
-                    <h3 className='text1'>STUST ROBOTS MINT </h3>
-                    <p className='text1'>You can mint a NFT for 0.003 Ethers</p>
-                    
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <iframe src="https://kuochenlee.github.io/background_5/" width="2200" height="720"></iframe>
-
-                  <Carousel.Caption>
-                    <h3 className='text1'>DEFFERENT ATTRUBUTE</h3>
-                    <p className='text1'>You can get defferent attribute NFT.</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                	<iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="2200" height="720"></iframe>
-
-                  <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-
+            </div>
+          </Container>
+        </Navbar>
       </div>
-      
-      <div className='div1'>
-      
+      {/* 動態圖展示 */}
+      <div className='div2'>
+        <Carousel fade>
+            <Carousel.Item>
+              <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
+            <Carousel.Caption>     
+            <h3 className='text1'>STUST ROBOTS MINT </h3>
+            <p className='text1'>You can mint a NFT for 0.003 Ethers</p>
+            </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <iframe src="https://kuochenlee.github.io/background_1/" width="2200" height="720"></iframe>
+              {/* <img src='../public/image/p1.png' width="2200" height="720"></img> */}
+            <Carousel.Caption>
+              <h3 className='text1'>DEFFERENT ATTRUBUTE</h3>
+              <p className='text1'>You can get defferent attribute NFT.</p>
+            </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="2200" height="720"></iframe>
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+            </Carousel.Item>
+            </Carousel>
+      </div>
+      {/* 屬性介紹 */}
+      <div className='div5'>
         <Container>
-        
-        
           <Row>
-            
-           
             <Col>
-              <iframe src="https://kuochenlee.github.io/Robot_9/" width="560" height="620"/>
+              <iframe src="https://kuochenlee.github.io/Robot_9/" width="560" height="625"/>
             </Col>
             <Col>
               <h1>Attribute</h1>
@@ -960,131 +904,102 @@ myFunction();
               </Table>
             </Col>
           </Row>
-        
+          </Container>
+      </div>
+      {/* Mint button 合約 */}
+      <div className='div6'>
+        <Container>
+          <Col>
+            <h1>Mint Blind Box</h1>
+            <h6>
+              And you can get blind box
+            </h6>
+          </Col>
+          <Col>
+            <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="655"/>
+          </Col>
+            <select className="list1" id="list">
+              <option class="drop-down">0</option>
+              <option class="drop-down" selected="selected">1</option>
+              <option class="drop-down">2</option>
+            </select>
+          <Col>
+            <Button disabled={notisClick} onClick={()=>mint()} variant={address?"danger":"secondary"} >Mint Blind Box</Button>
+          </Col>
+          <Col>
+            <h1>Open your blind box.</h1>
+            <h6>
+              You can open the blind box.
+            </h6>
+          </Col>
+          <Col>
+            <Button disabled={notisClick} onClick={()=>SeeNFT()} variant={address?"dark":"secondary"} >Open Blind Box</Button>
+          </Col>
+          <Col>
+            <h6>If you want to see your NFT ,Click <a href='https://testnets.opensea.io/zh-TW'>OpenSea</a></h6>
+          </Col>
+        </Container>
+      </div>
+      {/* About 相關內容 */}
+      <div className='div7'>
+        <Container>
+        <h1>About</h1>
           <Row>
-
-            <Col>
-              <h1>Mint Blind Box</h1>
-				<h6>
-					And you can get blind box
-				</h6>
-              <select className="list1" id="list">
-                <option class="drop-down">0</option>
-                <option class="drop-down" selected="selected">1</option>
-                <option class="drop-down">2</option>
-              </select>
-
-              <Col>
-              <Button disabled={notisClick} onClick={()=>mint()} variant={address?"danger":"secondary"} >Mint Blind Box</Button>
-			  
-            </Col>
-              <Col>
-				<h1>Open your blind box.</h1>
-				<h6>
-					You can open the blind box.
-				</h6>
-			  <Col>
-			  <Button disabled={notisClick} onClick={()=>SeeNFT()} variant={address?"dark":"secondary"} >Open Blind Box</Button>
-			  </Col>
-			  <Col>
-			  <h6>If you want to see your NFT ,Click <a href='https://testnets.opensea.io/zh-TW'>OpenSea</a></h6>
-			  </Col>
-			  </Col>
+           <Col>
+              <iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="660"/>
             </Col>
             <Col>
-            	<iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="650"/>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-            	<iframe src="https://kuochenlee.github.io/Blind_Box_picture/" width="560" height="650"/>
-            </Col>
-            <Col>
-              <h1>About</h1>
+              
               <h6>
-              Yan Youxian pointed out that since the 4th, the Chinese Navy has maintained 13 combat ships, intelligence search ships, etc. 24 nautical miles away from my country's adjoining area every day; The J-11, J-16, and supply aircraft, such as the Air Police 500 and other series of aircraft, have implemented multi-ship and multi-model deterrence in the Taiwan Strait.
-
-Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministry of National Defense, further explained that in terms of the actions of the communist army, the communist army announced the opening of 6 no-navigation areas on 8/2, adding a 7th location on 8/3, launching missiles on 8/4, and launching missiles on 8/4- On 8/7, joint military operations and drones harassed our outer islands; for the national army, 8/2 dispatched troops to deal with the communist army, 8/3 enhanced alertness, 8/4 completed air defense units, 8/4-8 /7 Dispatched aircraft and ships should respond and use post-bomb warnings, and combat readiness troops should be on alert.
+              Yan Youxian pointed out that since the 4th, the Chinese Navy has maintained 13 combat ships, intelligence search ships, etc. 24 nautical miles away from my country's adjoining area every day; The J-11, J-16, and supply aircraft, such as the Air Police 500 and other series of aircraft, have implemented multi-ship and multi-model deterrence in the Taiwan Strait.Lieutenant General Ye Guohui, Deputy Chief of the Planning Office of the Ministry of National Defense, further explained that in terms of the actions of the communist army, the communist army announced the opening of 6 no-navigation areas on 8/2, adding a 7th location on 8/3, launching missiles on 8/4, and launching missiles on 8/4- On 8/7, joint military operations and drones harassed our outer islands; for the national army, 8/2 dispatched troops to deal with the communist army, 8/3 enhanced alertness, 8/4 completed air defense units, 8/4-8 /7 Dispatched aircraft and ships should respond and use post-bomb warnings, and combat readiness troops should be on alert.
               </h6>
             </Col>
           </Row>
         </Container>
-		
       </div>
-	  <div className='div4'><h1>Frequently Asked Questions</h1>
-				<Col>
-				<h3 className='text1'>What are Robotos?</h3>
-				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+      {/* FAQ 問題解答查詢 */}
+      <div className='div4'>
+        <h1>Frequently Asked Questions</h1>
+        <Col>
+          <h3 className='text1'>What are Robotos?</h3>
+          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
 				</Col>
 
 				<Col>
-				<h3 className='text1'>What are Robotos?</h3>
-				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h3 className='text1'>What are Robotos?</h3>
+          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
 				</Col>
 
 				<Col>
-				<h3 className='text1'>What are Robotos?</h3>
-				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h3 className='text1'>What are Robotos?</h3>
+          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
 				</Col>
 
 				<Col>
-				<h3 className='text1'>What are Robotos?</h3>
-				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h3 className='text1'>What are Robotos?</h3>
+          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
 				</Col>
 
 				<Col>
-				<h3 className='text1'>What are Robotos?</h3>
-				<h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h3 className='text1'>What are Robotos?</h3>
+          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
 				</Col>
-    	</div>
-		  
-      <div className='div3'>
-
+      </div>
+      {/* 此網頁客服Email twitter DC */}
+      <div className='div8'>
+        <Container>
+          <Row>
           <h6 className='text2'>
             DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
             DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
             DM us on Twitter or email hello@stickmentoys.com if you want to get in touch - we can't promise a reply to all messages but we see you, we hear you.
           </h6>
+          </Row>
+        </Container>
       </div>
-     
     </div>
   );
 }
 
-// function Home(){
-// 	return(
-// 		<h2></h2>
-// 	);
-// }
-// function Attribute(){
-// 	return(
-// 		<div className='App'>
-// 			<div className='div1'>
-// 				<div className='div2'>
-// 				<h2>Attribute</h2>
-// 					</div>
-// 				</div>
-				
-// 			</div>
-			
-		
-// 	);
-// }
-// function Mint(){
-// 	return(
-// 		<h2>Mint</h2>
-// 	);
-// }
-// function About(){
-// 	return(
-// 		<h2>About</h2>
-// 	);
-// }
-// function FAQ(){
-// 	return(
-// 		<h2>FAQ</h2>
-// 	);
-// }
 
 export default App;
-
