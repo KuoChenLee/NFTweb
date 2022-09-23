@@ -76,6 +76,21 @@
 .div8{
   background-color: #bfc0c0;
 }
+.div9{
+  background-color: #a3cef1;
+}
+.div10{
+  background-color: #22333b;
+
+}
+.alert1{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.alert2{
+  width:834px;
+}
 .king{
   position: absolute;
   width: 638px;
@@ -113,7 +128,9 @@
 .text2{
   color: #ffffff;
 }
-
+.text3{
+  font-weight: bold;
+}
 .list1{
   background: #003d79;
   color: #fafafa;
