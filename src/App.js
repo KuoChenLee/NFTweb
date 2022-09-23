@@ -1,10 +1,10 @@
 import './App.css';
-import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion,Table,iframe,Image} from 'react-bootstrap';
+import {Button,Container,Row,Col,Navbar,Nav,Carousel,Accordion,Table,iframe,Image,Figure} from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  ethers } from "ethers";
 import Web3Modal from "web3modal";
 import React,{useState} from 'react';
-
 import {
 	TransitionGroup,
 	CSSTransition
@@ -805,9 +805,6 @@ function App() {
 					<Route path="/About" element={<About/>} />
 					<Route path="/FAQ" element={<FAQ/>} />
 				</Routes>
-				
-					
-				
 		</Router>
       </div>
     </div>
@@ -830,23 +827,6 @@ function Home(){
     })
   }
   myFunction();
-
-    // async function init(){
-    //   const instance = await web3Modal.connect();
-    //   const provider = new ethers.providers.Web3Provider(instance);
-    //   const signer = provider.getSigner();
-    //   const addr=await signer.getAddress();
-    //   const _contract=new ethers.Contract(contractAddr,abi,signer);
-    //   setContract(_contract);
-    //   window.contract=_contract;
-    //   setEns(await provider.lookupAddress(addr));
-    //   console.log(addr);
-    //   setAddress(addr);
-    //   const bal=await provider.getBalance(addr);
-    //   setBalance(ethers.utils.formatEther( bal )); 
-    //   setClick((isClick) => !isClick);
-    //   setNotClick((notisClick)=>!notisClick);
-    // }
   //mint 盲盒處理 
   async function mint(){
     const mintPrice = await contract.mintPrice();
@@ -896,138 +876,39 @@ function Home(){
             </Carousel.Item>
             </Carousel>
       </div>
-      {/* 屬性介紹 */}
-      <div className='div5'>
+      {/* How to get Robots? 相關內容 */}
+      <div className='div10'>
         <Container>
+          
           <Row>
+            <div className="alert1">
             <Col>
-              <iframe src="https://kuochenlee.github.io/Robot_9/" width="560" height="625"/>
+            <h2 className='text2'>How to get Robots?</h2>
+              <Alert className="alert2" variant="secondary"> 
+                <div >
+                    <h1 className='text3'>
+                      Get Your Own Robots
+                    </h1>
+                    <h6>
+                    Robotos is a collection of droid characters designed by Pablo Stanley and minted as NFTs. They are constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors.
+                      First way.You need to connect wallet.And get some Ethers coins to buy a Blind Box.Open it .And you get a Robot!
+                    </h6>
+                    <Button variant='dark' >Go to buy a Blind Box ➝</Button>
+                    <h6>
+                      Second way.If you want to choise Robot which you like.You can click this Button and go to the shop buy the Robot which you like.
+                    </h6>
+                    <Button variant='dark' >Go to the shop ➝</Button>
+                </div>  
+              </Alert>
             </Col>
             <Col>
-              <h1>Attribute</h1>
-                <Table striped bordered hover size="sm"  variant="info">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Types</th>
-                      <th></th>
-                      <th>Variations</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td>20</td>
-                      <td>Total Robots</td>
-                      <td>20</td>
-                      <td>Head Tops</td>
-                    </tr>
-                    <tr>
-                    <td></td>
-                      <td>Common</td>
-                      <td>Robotos</td>
-                      <td>20</td>
-                      <td>Eyes</td>
-                      
-                    </tr>
-                    <tr>
-                    <td></td>
-                      <td>Less Common</td>
-                      <td>Helmetos</td>
-                      <td>10</td>
-                      <td>Helmets</td>
-                     
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>20</td>
-                      <td>mouth</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>10</td>
-                      <td>ears</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>10</td>
-                      <td>Arms</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>5</td>
-                      <td>backpack</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>5</td>
-                      <td>body</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>3</td>
-                      <td>Head Types</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>20</td>
-                      <td>equipment</td>
-                    </tr>
-                  </tbody>
-              </Table>
-            </Col>
+               <iframe src="https://kuochenlee.github.io/Robot_8/" width="700" height="680"/>
+            </Col>            
+            </div>
+            
           </Row>
-          </Container>
-      </div>
-      {/* Mint button 合約 */}
-      {/* <div className='div6'>
-        <Container>
-          <Col>
-            <h1>Mint Blind Box</h1>
-            <h6>
-              And you can get blind box
-            </h6>
-          </Col>
-          <Col>
-            <iframe src="https://kuochenlee.github.io/Blind_Box_Picture1/" width="560" height="655"/>
-          </Col>
-            <select className="list1" id="list">
-              <option class="drop-down">0</option>
-              <option class="drop-down" selected="selected">1</option>
-              <option class="drop-down">2</option>
-            </select>
-          <Col>
-            <Button disabled={notisClick} onClick={()=>mint()} variant={address?"danger":"secondary"} >Mint Blind Box</Button>
-          </Col>
-          <Col>
-            <h1>Open your blind box.</h1>
-            <h6>
-              You can open the blind box.
-            </h6>
-          </Col>
-          <Col>
-            <Button disabled={notisClick} onClick={()=>SeeNFT()} variant={address?"dark":"secondary"} >Open Blind Box</Button>
-          </Col>
-          <Col>
-            <h6>If you want to see your NFT ,Click <a href='https://testnets.opensea.io/zh-TW'>OpenSea</a></h6>
-          </Col>
         </Container>
-      </div> */}
+      </div>
       {/* About 相關內容 */}
       <div className='div7'>
         <Container>
