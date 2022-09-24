@@ -779,11 +779,11 @@ function App() {
 			<Navbar>
 				<Container>
 					<Navbar.Brand to="/">STUST NFT Universe</Navbar.Brand>
-					<Link className='text1' to="/Home">Home</Link>
-					<Link className='text1' to="/Attribute">Attribute</Link>
-					<Link className='text1' to="/Mint">Mint</Link>
-					<Link className='text1' to='/About'>About</Link>
-					<Link className='text1' to="/FAQ">FAQ</Link>
+					<Link className='text1' to="/Home" >Home</Link>
+					<Link className='text1' to="/Attribute" >Attribute</Link>
+					<Link className='text1' to="/Mint" >Mint</Link>
+					<Link className='text1' to='/Empowerment' >Empowerment</Link>
+					<Link className='text1' to="/Robot_Shop" >Robot_Shop</Link>
 					<div>
 						{address&&<span className='me-2' >
 						{(1*balance).toFixed(2)}Ethers
@@ -794,19 +794,21 @@ function App() {
 					</div>
 					
 					</Container>
+
 			</Navbar>
 			{/* <br/> */}
-	
+
 				<Routes>
 					
 					<Route exact path="/Home"  element={<Home/>}/>
 					<Route path="/Attribute" element={<Attribute/>} />
 					<Route path="/Mint" element={<Mint/>} />
-					<Route path="/About" element={<About/>} />
-					<Route path="/FAQ" element={<FAQ/>} />
+					<Route path="/Empowerment" element={<Empowerment/>} />
+					<Route path="/Robot_Shop" element={<Robot_Shop/>} />
 				</Routes>
 		</Router>
       </div>
+      
     </div>
   );
 }
@@ -893,11 +895,15 @@ function Home(){
                     Robotos is a collection of droid characters designed by Pablo Stanley and minted as NFTs. They are constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors.
                       First way.You need to connect wallet.And get some Ethers coins to buy a Blind Box.Open it .And you get a Robot!
                     </h6>
-                    <Button variant='dark' >Go to buy a Blind Box ➝</Button>
+                    <a href='http://localhost:3000/Mint'>
+                    <Button variant='dark'>Go to buy a Blind Box ➝</Button>
+                    </a>
                     <h6>
                       Second way.If you want to choise Robot which you like.You can click this Button and go to the shop buy the Robot which you like.
                     </h6>
+                    <a href='http://localhost:3000/Robot_Shop'>
                     <Button variant='dark' >Go to the shop ➝</Button>
+                    </a>
                 </div>  
               </Alert>
             </Col>
@@ -930,28 +936,28 @@ function Home(){
       <div className='div4'>
         <h1>Frequently Asked Questions</h1>
         <Col>
-          <h3 className='text1'>What are Robotos?</h3>
-          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h2 className='text1'>What are Robotos?</h2>
+          <h4 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h4>
 				</Col>
 
 				<Col>
-          <h3 className='text1'>What are Robotos?</h3>
-          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h2 className='text1'>What are Robotos?</h2>
+          <h4 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h4>
 				</Col>
 
 				<Col>
-          <h3 className='text1'>What are Robotos?</h3>
-          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h2 className='text1'>What are Robotos?</h2>
+          <h4 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h4>
 				</Col>
 
 				<Col>
-          <h3 className='text1'>What are Robotos?</h3>
-          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h2 className='text1'>What are Robotos?</h2>
+          <h4 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h4>
 				</Col>
 
 				<Col>
-          <h3 className='text1'>What are Robotos?</h3>
-          <h6 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h6>
+          <h2 className='text1'>What are Robotos?</h2>
+          <h4 className='text1'>Robotos is a collection of algorithmically generated droid characters designed by Pablo Stanley and minted as NFTs on the Ethereum blockchain. The 1st generation of 10,000 droids will be constructed from various metal outfits, tin faces, digital accessories, top pieces, faces, backpacks, arms, and colors. Robotos have different body types, some rarer than others, and... there are rumors that you could find humans pretending to be robots too. Is it true? 🤔</h4>
 				</Col>
       </div>
       {/* 此網頁客服Email twitter DC */}
@@ -966,6 +972,7 @@ function Home(){
           </Row>
         </Container>
       </div>
+      
     </div>
     
   );
@@ -983,35 +990,91 @@ function Attribute(){
 					<h4>Each NFT is algorithmically generated by combining 170+ unique traits with varying rarity across categories.</h4>
 				</Row>
 				<Row>
-					<Table striped bordered hover variant="dark">
-						<thead>
-							<tr>
-							<th>#</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Username</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-							<td>1</td>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
-							</tr>
-							<tr>
-							<td>2</td>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
-							</tr>
-							<tr>
-							<td>3</td>
-							<td colSpan={2}>Larry the Bird</td>
-							<td>@twitter</td>
-							</tr>
-						</tbody>
-					</Table>
+          <Table striped bordered hover variant="dark">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Types</th>
+                        <th></th>
+                        <th>Variations</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td>20</td>
+                        <td>Total Robots</td>
+                        <td>20</td>
+                        <td>Head Tops</td>
+                      </tr>
+                      <tr>
+                      <td></td>
+                        <td>Common</td>
+                        <td>Robotos</td>
+                        <td>20</td>
+                        <td>Eyes</td>
+                        
+                      </tr>
+                      <tr>
+                      <td></td>
+                        <td>Less Common</td>
+                        <td>Helmetos</td>
+                        <td>10</td>
+                        <td>Helmets</td>
+                      
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>20</td>
+                        <td>mouth</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                        <td>ears</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                        <td>Arms</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>5</td>
+                        <td>backpack</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>5</td>
+                        <td>body</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>3</td>
+                        <td>Head Types</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>20</td>
+                        <td>equipment</td>
+                      </tr>
+                    </tbody>
+          </Table>
 				</Row>
 				</Col>
 				
@@ -1098,7 +1161,7 @@ function Mint(){
 						<Button disabled={notisClick} onClick={()=>mint()} variant={address?"danger":"secondary"} >Mint Blind Box</Button>
 					</Col>
 					<Col>
-						<h1>Open your blind box.</h1>
+						<h1>Open your blind box.🔑</h1>
 						<h6>
 						You can open the blind box.
 						</h6>
@@ -1114,10 +1177,10 @@ function Mint(){
 		</div>
 	);
 }
-function About(){
+function Empowerment(){
 	return(
 		<div className='dvi1'>
-			<h1>About</h1>
+			<h1>Empowerment</h1>
 			<Container>
 				<h3>
 					123456789
@@ -1126,15 +1189,10 @@ function About(){
 		</div>
 	);
 }
-function FAQ(){
+function Robot_Shop(){
 	return(
 		<div className='dvi1'>
-			<h1>FAQ</h1>
-			<Container>
-				<h3>
-					123456789
-				</h3>
-			</Container>
+			
 		</div>
 	);
 }
